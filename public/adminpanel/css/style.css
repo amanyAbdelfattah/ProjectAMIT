@@ -1,0 +1,9 @@
+.pagination
+{
+    display: flex;
+    justify-content: center;
+}
+td.d-flex.tablestyle
+{
+    border-bottom-width: 0px;
+}
