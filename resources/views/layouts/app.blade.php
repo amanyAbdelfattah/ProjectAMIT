@@ -51,6 +51,7 @@
                         @else
                             <li class="nav-item dropdown row justify-content-end">
                                 <img src="{{asset('uploads/users/' . Auth::user()->image)}}" alt="" style="max-width: 5%"> 
+                                {{-- <img src="{{asset('uploads/users/' . Auth::user()->avatar)}}" alt="" style="max-width: 5%"> --}}
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -58,6 +59,10 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if (Auth::user()->role == 1 OR Auth::user()->role == 2)
                                         <a href="{{route('admin-view')}}" class="dropdown-item">Dashboard
+                                        </a>
+                                            
+                                        @else
+                                        <a href="{{route('user-view')}}" class="dropdown-item">Welcome
                                         </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"

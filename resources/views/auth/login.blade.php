@@ -67,7 +67,7 @@
                         <p class="text-center my-3">OR</p>
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3 offset-lg-4">
-                                <a href="/login/facebook" class="btn btn-primary">Login with Facebook</a>
+                                <a href="{{route('login.facebook')}}" class="btn btn-primary">Login with Facebook</a>
                             </div>
                         </div>
                     </form>
