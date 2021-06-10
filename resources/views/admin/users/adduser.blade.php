@@ -47,6 +47,15 @@
                                 @enderror
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user"
+                                name="role" placeholder="Role">
+                                @error('role')
+                                <small class="text-danger"> {{$message}} </small>
+                                @enderror
+                                </div>
+                            </div>
                             <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
                         </form>
                     </div>

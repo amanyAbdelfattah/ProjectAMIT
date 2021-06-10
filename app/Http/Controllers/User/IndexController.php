@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Product;
+use App\User\Cart;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -14,7 +16,20 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $products = Product::all();
+        return view('user.index',compact('products'));
+    }
+    
+    public function addToCart(Product $prodcut)
+    {
+        if(session()->has('cart'))
+        {
+            $cart = new Cart(session()->get('cart'));
+        }else{
+            $cart = new Cart();
+        }
+        $cart->add($prodcut);
+        dd($cart);
     }
 
     /**

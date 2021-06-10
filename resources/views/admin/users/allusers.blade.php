@@ -18,11 +18,12 @@
     <div class="container">
         <div class="row">
     <table class="table m-5">
-        <thead>
+        <thead class="thead-dark">
         <tr>
             <th scope="col">User Picture</th>
             <th scope="col">Username</th>
             <th scope="col">Email</th>
+            <th scope="col">Role</th>
             <th scope="col">Control</th>
         </tr>
         </thead>
@@ -30,10 +31,11 @@
             @foreach ($users as $user)
             <tr>
                 <td><img src="{{asset('uploads/users/' . $user->image)}}" style="max-width: 50%;"></td>
-                <th>{{$user->name}}</th>
+                <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
+                <td>{{$user->role}}</td>
                 <td class="d-flex tablestyle">
-                    @if (Auth::user()->role == 1)
+                    @if (Auth::user()->role == "Admin")
                     <a class="btn btn-info m-1" href="{{route('user.show' , $user->id)}}">Show</a>
                     <a class="btn btn-warning m-1" href="{{route('user.edit' , $user->id)}}">Edit</a>
                     <form method="POST" action="{{route('user.destroy' , $user->id)}}">

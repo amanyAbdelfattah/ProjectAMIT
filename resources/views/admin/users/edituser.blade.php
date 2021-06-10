@@ -64,6 +64,13 @@
                                 <small class="text-danger"> {{$message}} </small>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user"
+                                    name="role" value="{{$user->role}}">
+                                    @error('role')
+                                <small class="text-danger"> {{$message}} </small>
+                                    @enderror
+                                </div>
                                 <input type="submit" value="Update Account" class="btn btn-primary btn-user btn-block">
                             </form>
                         </div>

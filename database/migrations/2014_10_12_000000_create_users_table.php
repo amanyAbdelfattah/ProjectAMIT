@@ -22,11 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->integer('role');
-            /* role column will include
-                0 = user,
-                1 = admin,
-                2 = moderator
+            $table->string('role');
+            /* role column will include the roles or all users
+                User,
+                Admin,
+                Moderator
             */
             $table->rememberToken();
             $table->timestamps();

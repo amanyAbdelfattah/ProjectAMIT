@@ -71,7 +71,7 @@
             <ul class="nav nav-treeview" style="background-color: #3f6791">
                 <li class="nav-item">
                 <a href="{{route('user.index')}}" class="nav-link">
-                    <i class="fas fa-fw fa-user"></i> 
+                    <i class="fas fa-users"></i> 
                     <p>All Users</p>
                 </a>
                 </li>
@@ -95,7 +95,7 @@
             <ul class="nav nav-treeview" style="background-color: #3f6791">
                 <li class="nav-item">
                 <a href="{{route('category.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="fas fa-shopping-basket"></i>
                     <p>All Categories</p>
                 </a>
                 </li>
@@ -130,6 +130,30 @@
                 </a>
                 </li>
         </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                    Control Posts
+                    <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('post.index')}}" class="nav-link">
+                    <i class="fas fa-file-powerpoint nav-icon"></i>
+                        <p>All Posts
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('post.create')}}" class="nav-link">
+                    <i class="fas fa-edit nav-icon"></i>
+                        <p>Add Post</p>
+                    </a>
+                </li>
+                </ul>
             </li>
         </nav>
 

@@ -18,7 +18,7 @@ class CheckUser
     {
         //Check user if logged in redirect him or her to index page
         $isadminormoderator = Auth::user()->role;
-        if($isadminormoderator == 0)
+        if($isadminormoderator == 'User')
         {
             return $next($request);
         }

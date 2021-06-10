@@ -18,7 +18,7 @@ class CheckRole
     {
         //Check user if Admin/Moderator go to admin panel if not return him
         $isadminormoderator = Auth::user()->role;
-        if($isadminormoderator == 1 || $isadminormoderator == 2)
+        if($isadminormoderator == 'Admin' || $isadminormoderator == 'Moderator')
         {
             return $next($request);
         }

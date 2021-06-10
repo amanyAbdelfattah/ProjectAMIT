@@ -30,7 +30,7 @@
                 <td><img src="{{asset('uploads/categories/' . $category->cat_img)}}" style="max-width: 50%;"></td>
                 <th>{{$category->cat_name}}</th>
                 <td class="d-flex tablestyle">
-                    @if (Auth::user()->role == 1)
+                    @if (Auth::user()->role == 'Admin')
                     <a class="btn btn-info m-1" href="{{route('category.show' , $category->id)}}">Show</a>
                     <a class="btn btn-warning m-1" href="{{route('category.edit' , $category->id)}}">Edit</a>
                     <form method="POST" action="{{route('category.destroy' , $category->id)}}">

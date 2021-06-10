@@ -34,7 +34,7 @@
                 <th>{{$product->pprice}}</th>
                 <th>{{$product->category->cat_name}}</th>
                 <td class="d-flex tablestyle">
-                    @if (Auth::user()->role == 1)
+                    @if (Auth::user()->role == 'Admin')
                     <a class="btn btn-info m-1" href="{{route('product.show' , $product->id)}}">Show</a>
                     <a class="btn btn-warning m-1" href="{{route('product.edit' , $product->id)}}">Edit</a>
                     <form method="POST" action="{{route('product.destroy' , $product->id)}}">

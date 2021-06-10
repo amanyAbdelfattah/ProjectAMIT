@@ -27,4 +27,5 @@ Route::middleware('auth','check.role')->prefix("dashboard")->group(function(){
     Route::resource("/user" , 'Admin\UserController');
     Route::resource("/category" , 'Admin\CatController');
     Route::resource("/product" , 'Admin\ProductController');
+    Route::resource("/post" , 'Admin\PostController');
 });

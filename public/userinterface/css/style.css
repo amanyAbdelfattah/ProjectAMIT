@@ -1,0 +1,37 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+/* Start Styling Header */
+header
+{
+    background-color: gainsboro;
+    padding-top: 15px
+}
+header, header .container .row .top-navbar ul li a
+{
+    color: gray;
+}
+header .container .row .top-navbar ul li
+{
+    list-style: none;
+    color: gray;
+    flex-basis: 25%;
+}
+header .container .row .top-navbar ul li a 
+{
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+header .container .row .top-navbar ul li a.nav-link
+{
+    padding: 0 !important;
+}
+header .container .row .top-navbar ul li a.active:hover
+{
+    color:palevioletred;
+}
+/* End Styling Header */

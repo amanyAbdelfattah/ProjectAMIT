@@ -47,6 +47,7 @@ class UserController extends Controller
             'name' => ['required', 'min:4' , 'max:225'],
             'email' => ['required' , 'email' , 'unique:users'],
             'password' => ['required' , 'min:8'],
+            'role' => ['required']
         ]);
         // ERROR: There is no validation rule named string
         if($validator->fails())
@@ -57,6 +58,7 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
+        $user->role = $request->input('role');
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -111,6 +113,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all() , [
             'name' => ['required', 'min:4' , 'max:225'],
             'email' => ['required' , 'email'],
+            'role' => ['required']
         ]);
         // ERROR: There is no validation rule named string
         if($validator->fails())
@@ -122,6 +125,7 @@ class UserController extends Controller
         $user->image = $request->input('image');
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->role = $request->input('role');
 
         if($request->hasFile('image')){
             $file = $request->file('image');

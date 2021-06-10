@@ -7,6 +7,7 @@
     <div class="card-body">
         <h5 class="card-title my-4">Username: {{$user->name}}</h5>
         <p class="card-text mb-3">Email address: {{$user->email}}</p>
+        <p class="card-text mb-3">Role: {{$user->role}}</p>
     </div>
 </div>
 @endsection

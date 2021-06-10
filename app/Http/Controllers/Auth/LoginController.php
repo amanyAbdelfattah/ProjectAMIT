@@ -63,7 +63,7 @@ class LoginController extends Controller
             $user->name = $data->name;
             $user->email = $data->email;
             $user->provider_id = $data->id;
-            $user->image = $data->image;
+            $user->avatar = $data->avatar;
             $user->save();
         }
 
