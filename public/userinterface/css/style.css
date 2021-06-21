@@ -1,10 +1,31 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    outline: 2px solid red;
+    
 }
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.main-color {
+    color: #E99497;
+}
+
+.line {
+    border: 1px solid black;
+    flex-basis: 39%;
+    height: 4px;
+}
+
+.checked {
+    color: #E99497;
+}
+
 /* Start Styling Header */
 header
 {
@@ -34,4 +55,718 @@ header .container .row .top-navbar ul li a.active:hover
 {
     color:palevioletred;
 }
+
+
+.search {
+    text-align: center;
+    padding: 25px;
+}
+
+.fashion {
+    background-color: black;
+}
+
+.fashion nav .icon h1 {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.fashion nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fashion nav ul {
+
+    display: flex;
+    list-style: none;
+    flex-basis: 60%;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.fashion nav ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.fashion nav ul li a:active {
+    color: #E99497;
+}
+
+.fashion nav ul li a:hover {
+    color: #E99497;
+
+}
+
+.banner {
+    background-image: url(../img/photo-1483985988355-763728e1935b.jfif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.banner .swiper-container {
+    width: 100%;
+    height: 25%;
+    top: 45%;
+    position: absolute;
+}
+
+.banner .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: rgba(255, 99, 71, 0.3);
+
+}
+
+.banner .swiper-slide h3 {
+    color: white;
+    font-family: ui-sans-serif;
+}
+
+.banner .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*---------End Header--------*/
+/*---------Start Main--------*/
+/*---------Start COLLECTION--*/
+
+
+.collection {
+    padding-top: 50px;
+}
+
+.collection .trend {
+    display: flex;
+}
+
+.collection .trend .woman img {
+    padding-bottom: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.collection .trend .woman .colletcioninfo h3
+{
+    letter-spacing: 8px;
+}
+.collection .trend .woman .colletcioninfo
+{
+    text-align: center;
+}
+
+.collection .trend .woman button {
+    padding: 5px 45px;
+    border-radius: 25px;
+    background: none;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+.collection .trend .woman button:hover
+{
+    background-color: #f56b6b
+}
+.collection .trend .men .box {
+    padding: 15px 0;
+}
+
+/*---------END COLLECTION----*/
+
+/*Start feature*/
+
+.feature {
+    padding-top: 50px;
+}
+
+.feature .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature .All {
+    padding-bottom: 25px;
+}
+
+.feature .All ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0px;
+
+}
+
+
+.feature .All ul a {
+    text-decoration: none;
+    color: black;
+}
+
+.feature .All ul a:hover {
+    color: #E99497;
+}
+
+
+.feature .All ul a:active {
+    color: #E99497;
+}
+
+
+
+.feature  .box {
+    padding: 15px 0;
+}
+
+.feature  .box .star{
+    padding: 5px 0;
+    text-align: start;
+}
+
+
+.feature  .box .price{
+    transform: translate(0px, -23.5rem);
+    text-align: end;
+    color: white;
+}
+
+.feature  .box .price span{
+    background-color: black;
+}
+
+
+.feature  .box .sm-icons {
+    margin-bottom: 12.5px;
+    display: flex;
+    justify-content: start;
+}
+
+.feature  .box .sm-icons div {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: black;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: .7s ease-in-out;
+    
+}
+
+.feature  .box .sm-icons div:hover {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    
+}
+.feature  .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.feature  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.feature .swiper-slide {
+        display: flex;
+        justify-content: space-evenly;
+}
+
+.feature  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.feature .first .swiper-pagination-bullet-active {
+    color: #fff;
+    background: #007aff;
+}
+
+
+/* End Feature*/
+/*Start image*/
+
+.image{
+    padding-top: 50px;
+}
+
+.image .photo{
+    display: flex;
+}
+
+
+.image .photo .boximg .discount{
+    width: fit-content;
+    transform: translate(14rem, -11.5rem);
+    color: white;
+    text-shadow: 2px 6px black;
+    font-weight: bold;
+}
+.image .photo .boximg h3
+{
+    font-size: 40px;
+}
+.image .photo .boximg p
+{
+    font-size: 20px;
+}
+
+.image .photo .boximg .na{
+    transform: translate(5rem, -11.5rem);
+    color: white;
+    font-size: 30px;
+    letter-spacing: 5px;
+    width: 75%;
+}
+
+.image .photo .boximg .dia{
+    transform: translate(11rem, -10.5rem);
+    color: white;
+    font-size: 35px;
+    width: 50%;
+    font-weight: bold;
+}
+
+/*End Image*/
+/* Start Trend*/
+
+
+
+.top .trend {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.top .first,
+.top .second{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.top .first  .box,
+.top .second .box {
+    padding: 15px 0;
+}
+
+.top .first  .box .star,
+.top .second .box .star{
+    padding: 5px 0;
+    text-align: start;
+}
+
+
+.top .first  .box .price,
+.top .second .box .price{
+    transform: translate(0px, -23.5rem);
+    text-align: end;
+    color: white;
+}
+
+.top .first  .box .price span,
+.top .second .box .price span{
+    background-color: black;
+}
+
+
+.top .first  .box .sm-icons,
+.top .second .box .sm-icons {
+    margin-bottom: 12.5px;
+    display: flex;
+    justify-content: start;
+}
+
+.top .first  .box .sm-icons div,
+.top .second .box .sm-icons div {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: black;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: .7s ease-in-out;
+    
+}
+
+.top .first  .box .sm-icons div:hover,
+.top .second .box .sm-icons div:hover {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    
+}
+
+.top .button  {
+    padding:30px 0;
+    text-align: center;
+    
+}
+.top .button button{
+    padding: 5px 20px;
+    background: none;
+    cursor: pointer;
+}
+
+
+/* End Trend*/
+/*Start shoes*/
+
+
+.shoes{
+    background-image: url(../img/photo-1485736231968-0c8ad5c9e174.jfif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 85vh;
+    width: 100%;
+}
+
+.shoes .items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.shoes .items .quote{
+    padding: 40px 0;
+    font-size: 40px;
+}
+
+.shoes .items .text{
+    color: white;
+    width: 75%;
+    padding: 25px 0;
+}
+
+.shoes .items .pic{
+    padding: 25px 0;
+}
+
+.shoes .items .pic h5,
+.shoes .items .pic p{
+    color: white;
+    text-align: center;
+
+}
+
+/*End shoes*/
+/*Start Latest*/
+
+.latest{
+    padding-top: 50px;
+}
+
+.latest .text{
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.latest .blog{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.latest .blog .box{
+    flex-basis: 28%;
+}
+
+.latest .blog .box button{
+    padding: 5px 20px;
+    background: none;
+    cursor: pointer;
+}
+
+/* End latest*/
+/* Start theme*/
+
+.theme{
+    padding-top: 50px;
+}
+
+.theme .text{
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.theme .icon{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* End theme*/
+/*Start Footer*/
+
+
+.about{
+    padding-top: 50px;
+    background-color: rgb(60, 60, 60);
+}
+
+.about .footer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about .footer h4,
+.about .footer p{
+    color: white;
+
+}
+
+.about .footer  button{
+    padding: 5px 50px;
+    background: none;
+    cursor: pointer;
+    margin:  15px 0px;
+    background-color: #E99497 ;
+}
+
+.about .footer .sm-icons {
+    margin-bottom: 12.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.about .footer .sm-icons div {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: .7s ease-in-out;
+}
+
+.about .footer .sm-icons div:hover {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    
+}
+
+footer{
+    background-color: black ;
+}
+
+footer .text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .text .ella,
+footer .text .visa{
+    color: white;
+    padding: 15px 0;
+}
+
+
+
+
+
+/*End Footer*/
+/*---------End Main----------*/
+
+/* Start Media Quries */
+@media(max-width:1200px) {
+    .container
+    {
+        width: 100%;
+    }
+    .collection .trend{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .collection .trend .woman img,
+    .collection .trend .woman p,
+    .collection .trend .men{
+        width: 100%;
+    }
+    .image .photo {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: space-around;
+    }
+    .boximg {
+        height: 85.5vh;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+    }
+    .image .photo .boximg .discount {
+        width: 50%;
+        transform: translate(20rem, -16.5rem);
+    }
+        .image .photo .boximg .na {
+            width: 43%;
+            transform: translate(23rem, -18.5rem);
+    }
+        .image .photo .boximg .dia {
+            width: 28%;
+            transform: translate(28rem, -16.5rem);
+    }
+
+}
+
+@media(max-width:992px) {
+    
+}
+
+@media(max-width:768px) {
+    
+}
+
+@media(max-width:576px) {
+    
+}
+
+@media(max-width:280px) {
+    header .container .row .top-navbar
+    {
+        display: none;
+    }
+    .search {
+        width:100%
+    }
+}
+/* End Media Quries */
+
+
+/* .search-bar
+{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px auto;
+    
+}
+.search {
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+    width: 35%;
+    margin-bottom: auto;
+    margin-top: 30px;
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 2.25rem;
+}
+
+.search-input {
+    color: black;
+    font-size: 19px;
+    font-weight: 300;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 70%;
+    padding: 0 10px;
+    margin: 5px 0 6px;
+    caret-color: transparent;
+    line-height: 20px;
+}
+
+.search-icon {
+    height: 34px;
+    width: 34px;
+    font-size: 20px;
+    font-weight: 700;
+    align-items: center;
+    color: gainsboro;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+}
+
+.search-icon:hover {
+    color: rgb(149, 145, 145) !important
+} */
 /* End Styling Header */
