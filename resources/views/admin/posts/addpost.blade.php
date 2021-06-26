@@ -1,7 +1,6 @@
-@extends('layouts.user')
-@section('title') Feedback @endsection
+@extends('layouts.admin')
+@section('title') Add Posts @endsection
 @section ('content')
-
 <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -12,22 +11,23 @@
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">write post!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Add Post!</h1>
                         </div>
-                        <form method="POST" action="{{route('writepost.store')}}" class="user mx-5">
+                        <form method="POST" action="{{route('post.store')}}" class="user mx-5">
                             <div class="row">
                                 @include('sweetalert::alert')
                             </div>
                             <div class="form-group row">
                                 @csrf
-                                <div class="col-sm-12 mb-3">
-                                    <textarea name="postbody" cols="30" rows="10" placeholder="What is your opinoin?>"></textarea>
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user"
+                                    name="postbody" placeholder="Post Body">
                                     @error('postbody')
                                     <small class="text-danger"> {{$message}} </small> 
                                     @enderror
                                 </div>
                             </div>
-                            <input type="submit" value="Write Post" class="btn btn-primary btn-user btn-block">
+                            <input type="submit" value="Add Post" class="btn btn-primary btn-user btn-block">
                         </form>
                     </div>
                 </div>
@@ -36,5 +36,4 @@
     </div>
 
 </div>
-
 @endsection

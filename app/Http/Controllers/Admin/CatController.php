@@ -43,7 +43,7 @@ class CatController extends Controller
         //To validate user inputs and store it in DB
         $validator = Validator::make($request->all() , [
             'cat_img' => ['required'],
-            'cat_name' => ['required', 'min:4' , 'max:225'],
+            'cat_name' => ['required', 'min:3' , 'max:225'],
         ]);
         // ERROR: There is no validation rule named string
         if($validator->fails())

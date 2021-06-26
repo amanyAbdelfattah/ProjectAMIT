@@ -1,74 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{URL::asset('userinterface/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('userinterface/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('userinterface/css/style.css')}}">
-    <link rel="icon" href="/userinterface/img/online-shopping-ecommerce.jpg">
-    <link rel="stylesheet" href="{{URL::asset('/userinterface/css/swiper.css')}}">
-    <title>Home | @yield('title')</title>
-</head>
-<body>
-    {{-- Start Header --}}
-    <header class="top-nav-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <p>Free Shipping on All orders Over %75!</p>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="top-navbar">
-                            <ul class="row customize-ul">
-                                <li><a href="" class="active"><img src="{{asset('uploads/users/' . Auth::user()->image)}}" alt="" style="max-width: 20%"> My Account</a></li>
-                                <li><a href="" class="active">Wishlist</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Currency:
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                <li>
-                                    
-                                    <a href="" class="active"><i class="fas fa-cart-plus"></i> My Cart</a>
-                                </li>
-                                
-                            </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    {{-- End Header --}}
-    <div class="search">
-        <input type="text" placeholder="Search" name="seacrh">
-        <button><i class="fas fa-search"></i></button>
-    </div>
-    <section>
-        <div class="fashion">
-            <div class="container">
-                <nav>
-                    <div class="icon">
-                        <h1>Fashion</h1>
-                    </div>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Women</a></li>
-                        <li><a href="">Men</a></li>
-                        <li><a href="">Footwear</a></li>
-                        <li><a href="">Accessories</a></li>
-                        <li><a href="">Sales</a></li>
-                        <li><a href="">Blog</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+@extends('layouts.user')
+@section('title') Home @endsection
+@section ('content')
+    
     </section>
     <div class="banner">
         <div class="swiper-container mySwiper">
@@ -96,8 +29,14 @@
         <div class="container">
             <div class="trend">
                 <div class="woman">
-                    <img src="userinterface/img/fashion-pretty-cool-young-girl-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg"
+                    <div class="collitem">
+                        <img src="userinterface/img/fashion-pretty-cool-young-girl-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg"
                         alt="">
+                        <div class="over text-center">
+                            <button class="upper">view collection</button>
+                        </div>
+                    </div>
+                    
                         <div class="colletcioninfo">
                             <h3 class="main-color"> Hot Collection</h3>
                             <h1> New Trend For Women</h1>
@@ -108,12 +47,18 @@
                         </div>
                     
                 </div>
-                <div class="men">
+                <div class="men collitem">
                     <div class="box">
                         <img src="userinterface/img/pexels-photo-842811.jpeg" alt="">
+                        <div class="over text-center">
+                            <button class="upper">view collection</button>
+                        </div>
                     </div>
-                    <div class="box">
+                    <div class="box collitem">
                         <img src="userinterface/img/82782504fb584f1112f99ddf55107945.png" alt="">
+                        <div class="over text-center">
+                            <button class="upper">view collection</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,705 +88,35 @@
                 <div class="swiper-wrapper">
                     <!------------------------- Slide One-------------------->
                     <div class="swiper-slide">
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
+                        <div class="container">
+                            <div class="row flex-row flex-wrap align-items-stretch">
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---------------------Slide Two--------------------->
-                    <div class="swiper-slide">
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---------------------Slide Three--------------------->
-                    <div class="swiper-slide">
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---------------------Slide Four--------------------->
-                    <div class="swiper-slide">
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                            <div class="price">
-                                <span> 150.00 $</span>
-                            </div>
-                            <div class="text">
-                                <h2>Suspendisse et.</h2>
-                                <div class="star">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <div class="sm-icons">
-                                    <div><i class="fas fa-heart"></i></div>
-                                    <div><i class="fas fa-shopping-cart"></i></div>
-                                    <div><i class="fas fa-share"></i></div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-container mySwiper">
-                    <div class="swiper-wrapper">
-                        <!---------------------Slide One--------------------->
-                        <div class="swiper-slide">
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!---------------------Slide Two--------------------->
-                        <div class="swiper-slide">
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!---------------------Slide Three--------------------->
-                        <div class="swiper-slide">
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!---------------------Slide Four--------------------->
-                        <div class="swiper-slide">
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                                <div class="price">
-                                    <span> 150.00 $</span>
-                                </div>
-                                <div class="text">
-                                    <h2>Suspendisse et.</h2>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <div class="sm-icons">
-                                        <div><i class="fas fa-heart"></i></div>
-                                        <div><i class="fas fa-shopping-cart"></i></div>
-                                        <div><i class="fas fa-share"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1072,14 +347,22 @@
                 <div class="quote main-color">
                     <i class="fas fa-quote-left"></i>
                 </div>
-                <div class="text">
-                    <p>"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae aliquam voluptatum unde atque! Officia, perspiciatis labore alias voluptates, assumenda magnam est reiciendis quis, dolorem voluptatem minus voluptate eveniet eius praesentium?"</p>
+                <div class="swiper-container mySwiper">
+                    <div class="swiper-wrapper" style="transform: translate3d(0px, 94px, 0px)">
+                        
+                        @foreach ($posts as $post)
+                        <div class="swiper-slide customerposts" style="transform: translate3d(43%, 27%, 0px);">
+                            <p class="text postbody">" {{$post->postbody}} "</p>
+                            <img src="{{asset('uploads/users/' . $post->user->image)}}" style="max-width: 15%">
+                            <h3 class="text user-name">{{$post->user->name}}</h3>
+                            <p class="text role">{{$post->user->role}}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <div class="pic">
-                    <img src="userinterface/img/photo-1509967419530-da38b4704bc6.jpg" alt="">
-                    <h5>MD SHAHIN ALAM</h5>
-                    <p>CEO OF TTCM</p>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -1094,7 +377,7 @@
                 <h2> Latest Blog </h2>
                 <div class="line"></div>
             </div>
-            <div class="blog">
+            <div class="blog" id="blog">
                 <div class="box">
                     <img src="userinterface/img/photo-1499887142886-791eca5918cd.jpg" alt="">
                     <h2>Some Headline Here</h2>
@@ -1188,6 +471,25 @@
                     <div class="input">
                         <input type="email" placeholder="Type Your Email">
                     </div>
+                    <form method="POST" action="{{route('writepost.store')}}" class="user my-3 opinion">
+                        <div class="row">
+                            @include('sweetalert::alert')
+                        </div>
+                        <div class="form-group row">
+                            @csrf
+                            <div class="col-sm-12 mb-3 input">
+                                <textarea id="w3review" name="postbody" rows="4" cols="50" placeholder="We care about what do you think..."></textarea>
+                                @error('postbody')
+                                <small class="text-danger"> {{$message}} </small> 
+                                @enderror
+                            </div>
+                        </div>
+                        <input type="submit" value="Write Post" class="btn btn-primary btn-user btn-block">
+                    </form>
+                    {{-- <div class="opinion">
+                        <input type="submit" value="Write Post" class="btn btn-primary btn-user btn-block">
+                    </div> --}}
+                    
                     <button>SUBSCRIBE</button>
                     <div class="sm-icons">
                         <div><i class="fab fa-facebook"></i></div>
@@ -1202,76 +504,4 @@
     </div>
 </section>
 <!-- End Main-->
-<footer>
-    <div class="container">
-        <div class="text">
-            <div class="ella">
-                <span>&copy; 2014 ELLA Fashion Store Shopify.All Rights Reserved.Ecommerce Software by Islam Bahaa </span>
-            </div>
-            <div class="visa">
-                <span> VISA  Master Card  Paypal</span>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<script src="{{URL::asset('userinterface/js/jquery.js')}}"></script>
-<script src="{{URL::asset('userinterface/js/all.min.js')}}"></script>
-<script src="{{URL::asset('userinterface/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{URL::asset('userinterface/js/swiper.js')}}"></script>
-
-<script src="{{URL::asset('userinterface/js/custom.js')}}"></script>
-
-
-
-    {{-- <div class="d-flex justify-content-center px-5">
-        <div class="search"> <input type="text" class="search-input" placeholder="Search..." name=""> <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
-    </div> --}}
-
-    {{-- Show Products --}}
-    {{-- <div class="container">
-        <div class="row">
-            <div class="col-lg-12 m-5">
-                <div class="p-5">
-                <div class="row">
-                    @include('sweetalert::alert')
-                </div>
-        <div class="container">
-            <div class="row">
-        <table class="table m-5">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">Product Picture</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Product Price</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach ($products as $product)
-                <tr>
-                    <td><img src="{{asset('uploads/products/' . $product->pimg)}}" style="max-width: 68%;"></td>
-                    <th>{{$product->pname}}</th>
-                    <th>{{$product->pprice}} $</th>
-                    <th>{{$product->category->cat_name}}</th>
-                    <td class="d-flex tablestyle">
-                        <a class="btn btn-info m-1" href="{{route('cart.add' , $product->id)}}">Add to Cart</a>
-                    </td>
-                </tr>
-                @endforeach
-            
-            </tbody>
-        </table>
-            </div>
-        </div>
-        
-    </div> --}}
-    {{-- End Products --}}
-    
-</body>
-<script src="{{URL::asset('userinterface/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{URL::asset('userinterface/js/all.min.js')}}"></script>
-</html>
-{{-- <h1>hi user</h1>
-<a href="{{route('writepost.create')}}">write post</a> --}}
+@endsection

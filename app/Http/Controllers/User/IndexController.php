@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\Admin\Product;
 use App\User\Cart;
+use App\Http\Controllers\Controller;
+use App\Models\Admin\Post;
+use App\Models\Admin\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -17,10 +19,11 @@ class IndexController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('user.index',compact('products'));
+        $posts = Post::all();
+        return view('user.index',compact('products' , 'posts'));
     }
     
-    public function addToCart(Product $prodcut)
+    public function addToCart(Product $product)
     {
         if(session()->has('cart'))
         {
@@ -28,8 +31,21 @@ class IndexController extends Controller
         }else{
             $cart = new Cart();
         }
-        $cart->add($prodcut);
-        dd($cart);
+        $cart->add($product);
+        session()->put('cart' , $cart);
+        return redirect()->route('user-view')->with('success','Product was addes to your cart');
+    }
+
+    public function showcart()
+    {   
+        if(session()->has('cart'))
+        {
+            $cart = new Cart(session()->get('cart'));
+        }else{
+            $cart = null;
+        }
+        
+        return view('user.carts.showcart' , compact('cart'));
     }
 
     /**
@@ -61,7 +77,8 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('user.profiles.showprofile' , compact('user'));
     }
 
     /**

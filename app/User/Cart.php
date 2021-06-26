@@ -3,6 +3,7 @@
 namespace App\User;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Product;
 
 class Cart
 {
@@ -11,7 +12,7 @@ class Cart
     public $totalQty;
     public $totalPrice;
 
-    public function __construct($cart = null)
+    public function __Construct($cart = null)
     {
         if($cart){
             $this->items = $cart->items;
@@ -23,6 +24,8 @@ class Cart
             $this->totalPrice = 0;
         }
     }
+
+    
 
     public function add($product){
         $item = [

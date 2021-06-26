@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Post;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -28,6 +29,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('admin.posts.addpost');
     }
 
     /**
@@ -39,6 +41,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        //To validate user inputs and store it in DB
+        $validator = Validator::make($request->all() , [
+            'postbody' => ['required'],
+        ]);
+        // ERROR: There is no validation rule named string
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        $post = new Post();
+        $post->postbody = $request->input('postbody');
+        $post->save();
+        return redirect()->back()->with(['success' => 'Post has been added']);
     }
 
     /**
@@ -60,7 +75,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //To edit Posts
+        $post = Post::findOrFail($id);
+        return view('admin.posts.editpost', compact('post'));
     }
 
     /**
@@ -72,7 +89,21 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //To update Posts
+        $validator = Validator::make($request->all() , [
+            'postbody' => ['required', 'min:4' , 'max:225'],
+        ]);
+        // ERROR: There is no validation rule named string
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        // Second insert new inputs in DB
+        $post = Post::findOrFail($id);
+        $post->postbody = $request->input('postbody');
+
+        $post->update();
+        return redirect()->back()->with(['success' => 'Post has been updated']);
     }
 
     /**
@@ -83,6 +114,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //To delete post
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect()->back()->with(['success' => 'User has been deleted']);
     }
 }

@@ -30,7 +30,7 @@ class OpinionController extends Controller
     public function create()
     {
         //To redirect user to write post
-        return view('user.posts.writepost');
+        return view('user.index');
     }
 
     /**
@@ -44,7 +44,6 @@ class OpinionController extends Controller
         //insert in DB with validation
         $validator = Validator::make($request->all() , [
             'postbody' => ['required'],
-            // 'user_id' => ['required']
         ]);
         if($validator->fails())
         {

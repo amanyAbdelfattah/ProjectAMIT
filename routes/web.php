@@ -22,6 +22,9 @@ Route::get("/user" , "User\IndexController@index")->middleware('auth','check.use
 Route::middleware('auth','check.user')->prefix("user")->group(function(){
     Route::resource("/writepost" , 'User\OpinionController');
     Route::get("/addToCart/{product}" , 'User\IndexController@addToCart')->name('cart.add');
+    Route::get("shopping-cart", 'User\IndexController@showcart')->name('cart.show');
+    Route::resource("/profile", 'User\IndexController');
+    Route::get("/search", 'SearchController@index')->name('search');
 });
 
 
