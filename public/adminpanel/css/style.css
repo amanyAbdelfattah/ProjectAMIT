@@ -7,3 +7,11 @@ td.d-flex.tablestyle
 {
     border-bottom-width: 0px;
 }
+.info-box-text
+{
+    color: white;
+}
+.website-information
+{
+    margin-top: 50px;
+}

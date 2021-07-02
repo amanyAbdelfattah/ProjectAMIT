@@ -11,7 +11,7 @@
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Add Post!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">{{__('Dashboard.AddPost')}}</h1>
                         </div>
                         <form method="POST" action="{{route('post.store')}}" class="user mx-5">
                             <div class="row">
@@ -27,7 +27,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <input type="submit" value="Add Post" class="btn btn-primary btn-user btn-block">
+                            <input type="submit" value="{{__('Dashboard.AddPost')}}" class="btn btn-primary btn-user btn-block">
                         </form>
                     </div>
                 </div>

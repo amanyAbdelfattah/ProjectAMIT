@@ -4,30 +4,33 @@
 
 <div class="container">
     <div class="row">
-        @if ($cart)
-            <div class="col-md-8">
-                @foreach ($cart->items as $product)
-                    <div class="card-md-2">
+        
+        <div class="products m-5">
+            <div class="container my-5">
+                @if ($cart)
+                <div class="row justify-content-around">
+                    @foreach ($cart->items as $product)
+                    
+                    <div class="card" style="width: 18rem; padding-bottom: 74px;">
+                        
+                        <img src="{{asset('uploads/products/' . $product['pimg'])}}" alt="" style="height: 87%">
                         <div class="card-body">
-                            <img src="{{asset('uploads/products/' . $product['pimg'])}}" alt="">
-                            <h5 class="card-title">{{$product['pname']}}</h5>
+                            <h5 class="card-title mb-3">{{__('UserIndex.ProductName')}}: {{$product['pname']}}</h5>
                             <div class="card-text">
-                                {{$product['pprice']}}
-                                <a href="" class="btn btn-danger btn-sm ml-4">Remove</a>
-                                <input type="text" name="qty" id="qty" value="{{$product['qty']}}">
+                                {{__('UserIndex.ProductPrice')}}: {{$product['pprice']}}
+                                <br>
+                                {{__('UserIndex.ProductQuantity')}}: {{$product['qty']}}
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                            
+                    @endforeach
+                </div>
             </div>
-
-            <div class="col-md-4">
-
-            </div>
-                
             @else
-                <p>There are no items in the cart</p>
-        @endif
+                            <p style="font-size:30px; color:red; text-align:center">{{__('UserIndex.NOCART')}}</p>
+                    @endif
+                    </div>
+        </div>
     </div>
 </div>
 @endsection

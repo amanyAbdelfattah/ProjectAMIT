@@ -9,20 +9,36 @@
     <div class="container">
         <div class="row">
             <div class="leftside col-lg-4">
-                <p>Free Shipping on All orders Over %75!</p>
+                <p>{{__('UserIndex.FreeShipping')}}</p>
             </div>
             <div class="rightside col-lg-6">
                 <nav class="top-navbar">
-                        <ul class="row customize-ul">
+                        <ul class="row customize-ul flex-nowrap">
                             <li>
-                                <a href="{{route('profile.show' , Auth::user()->id)}}" class="active"><img src="{{asset('uploads/users/' . Auth::user()->image)}}" alt="" style="max-width: 20%"> My Account</a>
+                                <a href="{{route('profile.show' , Auth::user()->id)}}" class="active"><img src="{{asset('uploads/users/' . Auth::user()->image)}}" alt="" style="max-width: 20%"> {{__('UserIndex.ACCOUNT')}}</a>
                             </li>
                             <li>
-                                <a href="" class="active">Wishlist</a>
+                                <a href="" class="active">{{__('UserIndex.WHISHLIST')}}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Currency:
+                                    {{__('UserIndex.LANGUAGE')}}:
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul>
+                                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                    <li>
+                                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                            {{ $properties['native'] }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                    </ul> 
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{__('UserIndex.CURRENCY')}}:
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Action</a></li>
@@ -33,7 +49,7 @@
                             </li>
                             <li>
                                 
-                                <a href="{{route('cart.show')}}" class="active"><i class="fas fa-cart-plus"></i> My Cart ({{session()->has('cart') ? session()->get('cart')->totalQty : '0'}})</a>
+                                <a href="{{route('cart.show')}}" class="active"><i class="fas fa-cart-plus"></i> {{__('UserIndex.CART')}} ({{session()->has('cart') ? session()->get('cart')->totalQty : '0'}})</a>
                             </li>
                             
                         </ul>
@@ -54,16 +70,16 @@
             <div class="overlay"></div>
             <nav> 
                 <div class="icon">
-                    <h1>Fashion</h1>
+                    <h1>{{__('UserIndex.FASHION')}}</h1>
                 </div>
                 <ul>
-                    <li><a href="{{route('user-view')}}">Home</a></li>
-                    <li><a href="">Women</a></li>
-                    <li><a href="">Men</a></li>
-                    <li><a href="#footer">Footwear</a></li>
-                    <li><a href="">Accessories</a></li>
-                    <li><a href="">Sales</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="{{route('user-view')}}">{{__('UserIndex.HOME')}}</a></li>
+                    <li><a href="{{route('women.items')}}">{{__('UserIndex.WOMEN')}}</a></li>
+                    <li><a href="{{route('men.items')}}">{{__('UserIndex.MEN')}}</a></li>
+                    <li><a href="#footer">{{__('UserIndex.FOOTWEAR')}}</a></li>
+                    <li><a href="">{{__('UserIndex.ACCESSORIES')}}</a></li>
+                    <li><a href="">{{__('UserIndex.SALES')}}</a></li>
+                    <li><a href="#blog">{{__('UserIndex.BLOG')}}</a></li>
                 </ul>
             </nav>
             <div class="icons menu-icon">

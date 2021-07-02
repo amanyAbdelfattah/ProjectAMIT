@@ -1,8 +1,8 @@
     <!-- Main Footer -->
     <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <span>Amany Abdelfattah</span>.</strong>
-    All rights reserved.
+    <strong>{{__('Dashboard.COPYRIGHT')}} &copy; {{__('Dashboard.YEAR')}} <span>{{__('Dashboard.NAME')}}</span>.</strong>
+    {{__('Dashboard.RIGHTS')}}
     <div class="float-right d-none d-sm-inline-block">
-        <b>AMIT</b> E-commerce Project
+        <b>{{__('Dashboard.AMIT')}}</b> {{__('Dashboard.AMITE-commerceProject')}}
     </div>
     </footer>

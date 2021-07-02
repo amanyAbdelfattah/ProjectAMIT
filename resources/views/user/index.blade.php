@@ -7,13 +7,22 @@
         <div class="swiper-container mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <h3>SOMETHING IS BETTER FASHION</h3>
+                    <h3>something is better fashion</h3>
+                    <div class="swipe-fashion">
+                        <p>fashion lorem</p>
+                    </div>
                 </div>
                 <div class="swiper-slide">
-                    <h3>SOMETHING IS BETTER FASHION</h3>
+                    <h3>something is better fashion</h3>
+                    <div class="swipe-fashion">
+                        <p>fashion lorem</p>
+                    </div>
                 </div>
                 <div class="swiper-slide">
-                    <h3>SOMETHING IS BETTER FASHION</h3>
+                    <h3>something is better fashion</h3>
+                    <div class="swipe-fashion">
+                        <p>fashion lorem</p>
+                    </div>
                 </div>
             </div>
             <div class="swiper-button-next"></div>
@@ -30,34 +39,37 @@
             <div class="trend">
                 <div class="woman">
                     <div class="collitem">
-                        <img src="userinterface/img/fashion-pretty-cool-young-girl-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg"
+                        <img src="{{URL::asset('userinterface/img/girlviewcoll.jpg')}}"
                         alt="">
-                        <div class="over text-center">
-                            <button class="upper">view collection</button>
+                        <div class="over-1 text-center">
+                            <button class="upper">{{__('UserIndex.ViewCollection')}}</button>
                         </div>
                     </div>
                     
                         <div class="colletcioninfo">
-                            <h3 class="main-color"> Hot Collection</h3>
-                            <h1> New Trend For Women</h1>
+                            <h3 class="main-color"> {{__('UserIndex.HotCollection')}}</h3>
+                            <h1> {{__('UserIndex.TrendForWomen')}}</h1>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil rem tempore magni harum
                                 repellendus nulla. Molestiae adipisci unde sapiente incidunt? Corporis error sequi
                                 temporibus a molestiae maiores distinctio quod impedit?</p>
-                            <button>Shop Now</button>
+                            <button>{{__('UserIndex.SHOPNOW')}}</button>
                         </div>
                     
                 </div>
-                <div class="men collitem">
-                    <div class="box">
-                        <img src="userinterface/img/pexels-photo-842811.jpeg" alt="">
-                        <div class="over text-center">
-                            <button class="upper">view collection</button>
+                {{--  --}}
+                <div class="men-side">
+                    <div class="row flex-column position">
+                        <div class="box1 mb-5">
+                            <img style="max-width:100%" src="{{URL::asset('userinterface/img/manoneviewcoll.jpg')}}" alt="">
+                        <div class="over-2 text-center">
+                            <button class="upper">{{__('UserIndex.ViewCollection')}}</button>
                         </div>
-                    </div>
-                    <div class="box collitem">
-                        <img src="userinterface/img/82782504fb584f1112f99ddf55107945.png" alt="">
-                        <div class="over text-center">
-                            <button class="upper">view collection</button>
+                        </div>
+                        <div class="box2">
+                            <img style="max-width:100%" src="{{URL::asset('userinterface/img/mantwoviewcoll.jpg')}}" alt="">
+                        <div class="over-3 text-center">
+                            <button class="upper">{{__('UserIndex.ViewCollection')}}</button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -72,15 +84,15 @@
         <div class="container">
             <div class="item">
                 <div class="line"></div>
-                <h2> Featuerd Items </h2>
+                <h2> {{__('UserIndex.FEATUERD')}} </h2>
                 <div class="line"></div>
             </div>
             <div class="All">
                 <ul>
-                    <li><a href="">All</a></li>
-                    <li><a href="">Men</a></li>
-                    <li><a href="">Women</a></li>
-                    <li><a href="">Kids</a></li>
+                    <li><a href="{{route('user-view')}}" style="color: crimson; font-weight:500">{{__('UserIndex.ALL')}}</a></li>
+                <li><a href="{{route('men.items')}}">{{__('UserIndex.MEN')}}</a></li>
+                <li><a href="{{route('women.items')}}">{{__('UserIndex.WOMEN')}}</a></li>
+                <li><a href="{{route('kids.items')}}">{{__('UserIndex.KIDS')}}</a></li>
                 </ul>
             </div>
             <!-------------------------------------------Start Swiper-------------------------------------------->
@@ -91,8 +103,20 @@
                         <div class="container">
                             <div class="row flex-row flex-wrap align-items-stretch">
                                 @foreach ($products as $product)
+                                @if ($product->ptype == "Featured")
                                 <div class="box">
-                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="products">
+                                        <div class="img-overlay1">
+                                            <div class="imgicon"><i class="far fa-eye"></i></div>
+                                                
+                                        </div>
+                                            <div class="img-overlay2">
+                                                <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                            </div>
+                                            
+                                        
+                                    </div>
+                                    
                                     <div class="price">
                                         <span> {{$product->pprice}} L.E</span>
                                     </div>
@@ -112,7 +136,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 @endforeach
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -131,14 +158,14 @@
         <div class="container">
             <div class="photo">
                 <div class="boximg">
-                    <img src="userinterface/img/photo-1426523038054-a260f3ef5bc9.jpg" alt="">
+                    <img src="{{URL::asset("userinterface/img/photo-1426523038054-a260f3ef5bc9.jpg")}}" alt="">
                     <div class="discount">
-                        <h3>70% OFF</h3>
+                        <h3>{{__('UserIndex.70%OFF')}}</h3>
                         <p>Tao Kinben Na?</p>
                     </div>
                 </div>
                 <div class="boximg">
-                    <img src="userinterface/img/photo-1590399830582-0bd885dee8e2.jpg" alt="">
+                    <img src="{{URL::asset("userinterface/img/photo-1590399830582-0bd885dee8e2.jpg")}}" alt="">
                     <div class="na">
                         <span>AMR CHEHARA KHARAP NA</span>
                     </div>
@@ -153,188 +180,64 @@
 <!-- End image-->
 <!--Start Top-->
 <section>
-    <div class="top">
+    <div class="feature">
         <div class="container">
-            <div class="trend">
+            <div class="item">
                 <div class="line"></div>
-                <h2> Trending Items </h2>
+                <h2> {{__('UserIndex.TRENDING')}} </h2>
                 <div class="line"></div>
             </div>
-            <div class="first">
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
+            <!-------------------------------------------Start Swiper-------------------------------------------->
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    <!------------------------- Slide One-------------------->
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="row flex-row flex-wrap align-items-stretch">
+                                @foreach ($products as $product)
+                                @if ($product->ptype == "Trending")
+                                <div class="box">
+                                    <div class="products">
+                                        <div class="img-overlay3">
+                                            <div class="imgicon"><i class="far fa-eye"></i></div>
+                                        </div>
+                                            <div class="img-overlay2">
+                                                <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                            </div>
+                                            
+                                    </div>
+                                    
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                @endforeach
+                                
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="second">
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="userinterface/img/photo-1581338834647-b0fb40704e21.jpg" alt="">
-                    <div class="price">
-                        <span> 150.00 $</span>
-                    </div>
-                    <div class="text">
-                        <h2>Suspendisse et.</h2>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="sm-icons">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="button">
-                <button>LOAD MORE</button>
-            </div>
+            <!-------------------------------------------End Swiper-------------------------------------------->
         </div>
     </div>
 </section>
@@ -374,27 +277,27 @@
         <div class="container">
             <div class="text">
                 <div class="line"></div>
-                <h2> Latest Blog </h2>
+                <h2> {{__('UserIndex.LatestBlog')}} </h2>
                 <div class="line"></div>
             </div>
             <div class="blog" id="blog">
                 <div class="box">
-                    <img src="userinterface/img/photo-1499887142886-791eca5918cd.jpg" alt="">
-                    <h2>Some Headline Here</h2>
+                    <img style="max-width:90%; height: 35.5vh;" src="{{URL::asset("userinterface/img/firstmodel.jpg")}}" alt="">
+                    <h2>{{__('UserIndex.SomeHeadline')}}</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio error ex provident.</p>
-                    <button>READ MORE</button>
+                    <button>{{__('UserIndex.READMORE')}}</button>
                 </div>
                 <div class="box">
-                    <img src="userinterface/img/photo-1499887142886-791eca5918cd.jpg" alt="">
-                    <h2>Some Headline Here</h2>
+                    <img style="max-width:100%; height: 35.5vh;" src="{{URL::asset("userinterface/img/sndmodel.jpg")}}" alt="">
+                    <h2>{{__('UserIndex.SomeHeadline')}}</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio error ex provident.</p>
-                    <button>READ MORE</button>
+                    <button>{{__('UserIndex.READMORE')}}</button>
                 </div>
                 <div class="box">
-                    <img src="userinterface/img/photo-1499887142886-791eca5918cd.jpg" alt="">
-                    <h2>Some Headline Here</h2>
+                    <img style="max-width:100%; height: 35.5vh;" src="{{URL::asset("userinterface/img/man_model.jpg")}}" alt="">
+                    <h2>{{__('UserIndex.SomeHeadline')}}</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio error ex provident.</p>
-                    <button>READ MORE</button>
+                    <button>{{__('UserIndex.READMORE')}}</button>
                 </div>
             </div>
         </div>
@@ -407,7 +310,7 @@
         <div class="container">
             <div class="text">
                 <div class="line"></div>
-                <h2> Shop By Brand  </h2>
+                <h2> {{__('UserIndex.ShopByBrand')}}  </h2>
                 <div class="line"></div>
             </div>
             <div class="icon">
@@ -433,41 +336,41 @@
         <div class="container">
             <div class="footer">
                 <div class="box">
-                    <h4>SHOPS</h4>
-                    <p>New in</p>
-                    <p>Women</p>
-                    <p>Men</p>
-                    <p>Schuhe Shoes</p>
-                    <p> Bag & Accessories</p>
-                    <p>Top Brands</p>
-                    <p>Sale & Special Offers</p>
-                    <p>Look Book</p>
+                    <h4>{{__('UserIndex.SHOPS')}}</h4>
+                    <p>{{__('UserIndex.NewIn')}}</p>
+                    <p>{{__('UserIndex.WOMEN')}}</p>
+                    <p>{{__('UserIndex.MEN')}}</p>
+                    <p>{{__('UserIndex.SchuheShoes')}}</p>
+                    <p>{{__('UserIndex.BagANDAccessories')}}</p>
+                    <p>{{__('UserIndex.TopBrands')}}</p>
+                    <p>{{__('UserIndex.SaleANDSpecialOffers')}}</p>
+                    <p>{{__('UserIndex.LookBook')}}</p>
                 </div>
                 <div class="box">
-                    <h4>INFORMATION</h4>
-                    <p>New in</p>
-                    <p>Women</p>
-                    <p>Men</p>
-                    <p>Schuhe Shoes</p>
-                    <p> Bag & Accessories</p>
-                    <p>Top Brands</p>
-                    <p>Sale & Special Offers</p>
-                    <p>Look Book</p>
+                    <h4>{{__('UserIndex.INFORMATION')}}</h4>
+                    <p>{{__('UserIndex.NewIn')}}</p>
+                    <p>{{__('UserIndex.WOMEN')}}</p>
+                    <p>{{__('UserIndex.MEN')}}</p>
+                    <p>{{__('UserIndex.SchuheShoes')}}</p>
+                    <p>{{__('UserIndex.BagANDAccessories')}}</p>
+                    <p>{{__('UserIndex.TopBrands')}}</p>
+                    <p>{{__('UserIndex.SaleANDSpecialOffers')}}</p>
+                    <p>{{__('UserIndex.LookBook')}}</p>
                 </div>
                 <div class="box">
-                    <h4>CUSTOMER SERVICE</h4>
-                    <p>New in</p>
-                    <p>Women</p>
-                    <p>Men</p>
-                    <p>Schuhe Shoes</p>
-                    <p> Bag & Accessories</p>
-                    <p>Top Brands</p>
-                    <p>Sale & Special Offers</p>
-                    <p>Look Book</p>
+                    <h4>{{__('UserIndex.CUSTOMERSERVICE')}}</h4>
+                    <p>{{__('UserIndex.NewIn')}}</p>
+                    <p>{{__('UserIndex.WOMEN')}}</p>
+                    <p>{{__('UserIndex.MEN')}}</p>
+                    <p>{{__('UserIndex.SchuheShoes')}}</p>
+                    <p>{{__('UserIndex.BagANDAccessories')}}</p>
+                    <p>{{__('UserIndex.TopBrands')}}</p>
+                    <p>{{__('UserIndex.SaleANDSpecialOffers')}}</p>
+                    <p>{{__('UserIndex.LookBook')}}</p>
                 </div>
                 <div class="box">
-                    <h4>NEWSLETTER</h4>
-                    <p>Sign Up For News Letter</p>
+                    <h4>{{__('UserIndex.NEWSLETTER')}}</h4>
+                    <p>{{__('UserIndex.SIGNUP')}}</p>
                     <div class="input">
                         <input type="email" placeholder="Type Your Email">
                     </div>
@@ -484,13 +387,13 @@
                                 @enderror
                             </div>
                         </div>
-                        <input type="submit" value="Write Post" class="btn btn-primary btn-user btn-block">
+                        <input type="submit" value="{{__('UserIndex.POST')}}" class="btn btn-primary btn-user btn-block">
                     </form>
                     {{-- <div class="opinion">
                         <input type="submit" value="Write Post" class="btn btn-primary btn-user btn-block">
                     </div> --}}
                     
-                    <button>SUBSCRIBE</button>
+                    <button>{{__('UserIndex.SUBSCRIBE')}}</button>
                     <div class="sm-icons">
                         <div><i class="fab fa-facebook"></i></div>
                         <div><i class="fab fa-twitter"></i></div>

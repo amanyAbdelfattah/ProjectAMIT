@@ -16,7 +16,7 @@ class CatController extends Controller
      */
     public function index()
     {
-        //To show all cateogries
+        //To show all Cateogries
         $categories = Category::paginate(5);
         return view('admin.categories.allcategories' , compact('categories'));
     }
@@ -28,7 +28,7 @@ class CatController extends Controller
      */
     public function create()
     {
-        //To redirect admin or moderator to add new category
+        //To redirect admin or moderator to add new Category
         return view('admin.categories.addcategory');
     }
 
@@ -40,12 +40,12 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        //To validate user inputs and store it in DB
+        //To validate Category inputs and store it in DB
         $validator = Validator::make($request->all() , [
             'cat_img' => ['required'],
             'cat_name' => ['required', 'min:3' , 'max:225'],
         ]);
-        // ERROR: There is no validation rule named string
+        //To start storing Categories in DB
         if($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
@@ -64,7 +64,7 @@ class CatController extends Controller
             $category->cat_img = '';
         }
         $category->save();
-        return redirect()->back()->with(['success' => 'New Category has been added']);
+        return redirect()->back()->with(['success' => 'New Category was added']);
     }
 
     /**
@@ -75,7 +75,7 @@ class CatController extends Controller
      */
     public function show($id)
     {
-        //To show category's details
+        //To show Category's details
         $category = Category::findOrFail($id);
         return view('admin.categories.categoryinfo' , compact('category'));
     }
@@ -88,7 +88,7 @@ class CatController extends Controller
      */
     public function edit($id)
     {
-        //To edit category's information
+        //To edit Category's information
         $category = Category::findOrFail($id);
         return view('admin.categories.editcategory', compact('category'));
     }
@@ -102,7 +102,7 @@ class CatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //To update category information: first validate category inputs
+        //To update Category information: first validate Category inputs
         $validator = Validator::make($request->all() , [
             'cat_name' => ['required', 'min:4' , 'max:225'],
         ]);
@@ -111,7 +111,7 @@ class CatController extends Controller
         {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
-        // Second insert new inputs in DB
+        // Second strat updating Categories in DB
         $category = Category::findOrFail($id);
         $category->cat_img = $request->input('cat_img');
         $category->cat_name = $request->input('cat_name');
@@ -128,7 +128,7 @@ class CatController extends Controller
             $category->cat_img = '';
         }
         $category->update();
-        return redirect()->back()->with(['success' => 'Category has been updated']);
+        return redirect()->back()->with(['success' => 'Category was updated']);
     }
 
     /**
@@ -139,9 +139,9 @@ class CatController extends Controller
      */
     public function destroy($id)
     {
-        //To delete category
+        //To delete Category
         $category = Category::findOrFail($id);
         $category->delete();
-        return redirect()->back()->with(['success' => 'Category has been deleted']);
+        return redirect()->back()->with(['success' => 'Category was deleted']);
     }
 }

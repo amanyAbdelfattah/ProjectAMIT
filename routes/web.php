@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\OpinionController;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +17,27 @@ use App\Http\Controllers\User\OpinionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("/user" , "User\IndexController@index")->middleware('auth','check.user')->name('user-view'); 
 
-Route::middleware('auth','check.user')->prefix("user")->group(function(){
-    Route::resource("/writepost" , 'User\OpinionController');
-    Route::get("/addToCart/{product}" , 'User\IndexController@addToCart')->name('cart.add');
-    Route::get("shopping-cart", 'User\IndexController@showcart')->name('cart.show');
-    Route::resource("/profile", 'User\IndexController');
-    Route::get("/search", 'SearchController@index')->name('search');
-});
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+        Route::get("/user" , "User\IndexController@index")->middleware('auth','check.user')->name('user-view');
+        Route::middleware('auth','check.user')->prefix("user")->group(function(){
+            Route::resource("/writepost" , 'User\OpinionController');
+            Route::get("/addToCart/{product}" , 'User\IndexController@addToCart')->name('cart.add');
+            Route::get("/women" , 'User\IndexController@women')->name('women.items');
+            Route::get("/men" , 'User\IndexController@men')->name('men.items');
+            Route::get("/kids" , 'User\IndexController@kids')->name('kids.items');
+            Route::get("shopping-cart", 'User\IndexController@showcart')->name('cart.show');
+            Route::resource("/profile", 'User\IndexController');
+            Route::get("/search", 'SearchController@index')->name('search');
+        });
+    });
+
+
+
 
 
 Route::get('/', function () {

@@ -51,7 +51,16 @@ button:hover
 {
     background-color: #f56b6b;
 }
-
+svg.svg-inline--fa.fa-heart.fa-w-16
+{
+    color: red;
+}
+svg.svg-inline--fa.fa-shopping-cart.fa-w-18 {
+    color: blueviolet;
+}
+svg.svg-inline--fa.fa-share.fa-w-16 {
+    color: #1f3971;
+}
 /* Start Styling Header */
 header
 {
@@ -188,7 +197,7 @@ header .container .row .top-navbar ul li a.active:hover
 }
 
 .banner {
-    background-image: url(../img/photo-1483985988355-763728e1935b.jfif);
+    background-image: url(../img/girls-models.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -233,9 +242,18 @@ header .container .row .top-navbar ul li a.active:hover
 
 .banner .swiper-slide h3 {
     color: white;
-    font-family: ui-sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: monospace;
 }
-
+.banner .swiper-slide p {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    transform: translate(-20rem, 3rem);
+}
 .banner .swiper-slide img {
     display: block;
     width: 100%;
@@ -255,41 +273,77 @@ header .container .row .top-navbar ul li a.active:hover
 .collection .trend{
     display: flex;
 }
-.collection .collitem
+.collection .collitem , .collection .position, .products
 {
     position: relative;
 }
-.collection .trend .collitem .over {
+.collection .trend .collitem .over-1, .over-2 , .men-side .over-3 , .img-overlay1, .img-overlay3{
     opacity: 0;
     transition: .7s ease-in-out;
 }
 
-.collection .trend .collitem:hover .over {
+.collection .trend .collitem:hover .over-1, .over-2:hover , .men-side .over-3:hover , .img-overlay1:hover , .img-overlay3:hover{
     opacity: 1;
     cursor: pointer;
 }
-
-.collection .trend .collitem .over {
+.collection .trend .collitem .over-1 , .over-3 , .over-2 , .img-overlay1 , .img-overlay3
+{
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 75%;
-    height: 95.5%;
-    background: rgba(247, 96, 14, .9);
+    background: rgba(49, 55, 61, 0.5);
     color: #fff;
     padding: 10px;
 }
-.collection .trend .collitem .over button
+.colletcioninfo {
+    width: 66%;
+}
+.collection .trend .collitem .over-1{
+    top: 0;
+    left: 0;
+    width: 69%;
+    height: 95.5%;
+}
+.over-3 {
+    top: 51%;
+    left: 11px;
+    width: 94.7%;
+    height: 48.8%;
+}
+.img-overlay3
+{
+    top: 0;
+    left: 10px;
+    width: 93.7%;
+    height: 99.7%;
+}
+.over-2 {
+    top: 0;
+    left: 11px;
+    width: 94.5%;
+    height: 43.7%;
+}
+.img-overlay1
+{
+    top: 0;
+    left: 7px;
+    width: 94.5%;
+    height: 99.5%;
+}
+.imgicon {
+    position: absolute;
+    transform: translate(7.5rem, 13rem);
+    font-size: 40px;
+}
+.collection .trend .collitem .over-1 .upper, .over-2 .upper , .over-3 .upper
 {
     text-transform: uppercase;
+    margin-top: 26%;
+    color: white;
+    background-color: inherit;
     background-color: none;
     background-image: inherit;
+    border: 1px solid white;
     border-radius: 0px;
     padding: 12px 30px;
-}
-.collection .trend .collitem .over .upper button:hover
-{
-    background-color: none;
 }
 .collection .trend .woman img {
     padding-bottom: 20px;
@@ -301,10 +355,7 @@ header .container .row .top-navbar ul li a.active:hover
 {
     letter-spacing: 8px;
 }
-.collection .trend .woman .colletcioninfo
-{
-    text-align: center;
-}
+
 
 /* .collection .trend .woman button {
     padding: 5px 45px;
@@ -376,7 +427,7 @@ header .container .row .top-navbar ul li a.active:hover
 
 
 .feature  .box .price{
-    transform: translate(0px, -30.51rem);
+    transform: translate(-10px, -30.51rem);
     text-align: end;
     color: white;
 }
@@ -391,7 +442,7 @@ header .container .row .top-navbar ul li a.active:hover
 }
 
 
-.feature  .box .sm-icons {
+.feature  .box .sm-icons , .top .first .box .sm-icons {
     margin-bottom: 12.5px;
     display: flex;
     justify-content: start;
@@ -414,7 +465,7 @@ header .container .row .top-navbar ul li a.active:hover
     transition: .7s ease-in-out;
     
 }
-.feature  .box .sm-icons div a{
+.feature  .box .sm-icons div a , .top .first .box .sm-icons div a{
     color: black;
     
 }
@@ -456,11 +507,17 @@ header .container .row .top-navbar ul li a.active:hover
         display: flex;
         justify-content: space-evenly;
 }
-
-.feature  .swiper-slide img {
+.top .first .box img
+{
     max-width: 100%;
+}
+.feature  .swiper-slide img, .top .first .box img{
     height: 52vh;
     object-fit: cover;
+}
+.feature .swiper-slide img
+{
+    max-width: 94%;
 }
 
 .feature  .swiper-pagination-bullet {
@@ -536,47 +593,40 @@ header .container .row .top-navbar ul li a.active:hover
     justify-content: center;
 }
 
-.top .first,
-.top .second{
+.top .first{
     display: flex;
     justify-content: space-evenly;
     
 }
 
-.top .first  .box,
-.top .second .box {
+.top .first  .box{
     padding: 15px 0;
 }
 
-.top .first  .box .star,
-.top .second .box .star{
+.top .first  .box .star{
     padding: 5px 0;
     text-align: start;
 }
 
 
-.top .first  .box .price,
-.top .second .box .price{
-    transform: translate(0px, -23.5rem);
+.top .container .first .row .box .price {
+    transform: translate(-63.8rem, -30.5rem);
     text-align: end;
     color: white;
 }
 
-.top .first  .box .price span,
-.top .second .box .price span{
+.top .first  .box .price span{
     background-color: black;
 }
 
 
-.top .first  .box .sm-icons,
-.top .second .box .sm-icons {
+.top .first  .box .sm-icons {
     margin-bottom: 12.5px;
     display: flex;
     justify-content: start;
 }
 
-.top .first  .box .sm-icons div,
-.top .second .box .sm-icons div {
+.top .first  .box .sm-icons div {
     cursor: pointer;
     margin-right: 10px;
     width: 30px;
@@ -594,8 +644,7 @@ header .container .row .top-navbar ul li a.active:hover
     
 }
 
-.top .first  .box .sm-icons div:hover,
-.top .second .box .sm-icons div:hover {
+.top .first  .box .sm-icons div:hover {
     transform: rotateY(360deg);
     -webkit-transform: rotateY(360deg);
     -moz-transform: rotateY(360deg);
@@ -621,7 +670,7 @@ header .container .row .top-navbar ul li a.active:hover
 
 
 .shoes{
-    background-image: url(../img/photo-1485736231968-0c8ad5c9e174.jfif);
+    background-image: url(../img/tieshoes.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -904,7 +953,10 @@ footer .text .visa{
         max-width: 86%;
 
     }
-    .feature .box .price , .top .first .box .price, .top .second .box .price {
+    .feature .box .price{
+        transform: translate(-34px, -19.28rem);
+    }
+    .top .first .container .row .box .price{
         transform: translate(-34px, -19.28rem);
     }
     .feature .box h2 , .top .first .box h2 , .top .second .box h2 {

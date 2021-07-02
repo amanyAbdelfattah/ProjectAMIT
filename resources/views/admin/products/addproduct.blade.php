@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create New Prodcut!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">{{__('Dashboard.AddProduct')}}!</h1>
                         </div>
                         <form method="POST" action="{{route('product.store')}}" class="user mx-5" enctype="multipart/form-data">
                             <div class="row">
@@ -21,7 +21,7 @@
                             <div class="form-group row">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <label for="formFile" class="form-label">{{__('Dashboard.UploadImage')}}</label>
                                     <input class="form-control" type="file" id="formFile" name="pimg">
                                 </div>
                                 <div class="col-sm-12 mb-3">
@@ -38,19 +38,26 @@
                                     <small class="text-danger"> {{$message}} </small> 
                                     @enderror
                                 </div>
+                                <div class="col-sm-12 mb-3">
+                                    <input type="text" class="form-control form-control-user"
+                                    name="ptype" placeholder="Product Type">
+                                    @error('ptype')
+                                    <small class="text-danger"> {{$message}} </small> 
+                                    @enderror
+                                </div>
                             </div>
                             
-                            <h5>Choose Related Category</h5>
+                            <h5>{{__('Dashboard.CHOOSECAT')}}</h5>
                             <div class="checkbox"> 
                                 <div class="btn-group-vertical">
                                     @foreach ($categories as $category)
-                                    <label for=""><input type="checkbox" name="cat_id" value="{{$category->id}}"> {{$category->cat_name}}</label>
+                                    <label for=""><input type="radio" name="cat_id" value="{{$category->id}}"> {{$category->cat_name}}</label>
                                     
                                     @endforeach
                                     
                                 </div>
                             </div>
-                            <input type="submit" value="Add Product" class="btn btn-primary btn-user btn-block">
+                            <input type="submit" value="{{__('Dashboard.AddProduct')}}" class="btn btn-primary btn-user btn-block">
                         </form>
                     </div>
                 </div>

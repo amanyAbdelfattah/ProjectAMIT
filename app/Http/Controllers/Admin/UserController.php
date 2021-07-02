@@ -49,7 +49,7 @@ class UserController extends Controller
             'password' => ['required' , 'min:8'],
             'role' => ['required']
         ]);
-        // ERROR: There is no validation rule named string
+        //To start storing Users in DB
         if($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
@@ -71,7 +71,7 @@ class UserController extends Controller
             $user->image = '';
         }
         $user->save();
-        return redirect()->back()->with(['success' => 'User has been added']);
+        return redirect()->back()->with(['success' => 'User was added']);
     }
 
     /**
@@ -120,7 +120,7 @@ class UserController extends Controller
         {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
-        // Second insert new inputs in DB
+        // Second update user in DB
         $user = User::findOrFail($id);
         $user->image = $request->input('image');
         $user->name = $request->input('name');
@@ -139,7 +139,7 @@ class UserController extends Controller
             $user->image = '';
         }
         $user->update();
-        return redirect()->back()->with(['success' => 'User has been updated']);
+        return redirect()->back()->with(['success' => 'User was updated']);
     }
 
     /**
@@ -153,6 +153,6 @@ class UserController extends Controller
         //To delete user
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->back()->with(['success' => 'User has been deleted']);
+        return redirect()->back()->with(['success' => 'User was deleted']);
     }
 }

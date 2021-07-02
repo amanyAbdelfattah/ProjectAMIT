@@ -32,39 +32,16 @@
                 <a href="{{route('admin-view')}}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                    Dashboard
+                    {{__('Dashboard.DASHBOARD')}}
                     </p>
                 </a>
                 </li>
-            {{-- <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-                <i class="fas fa-users-cog"></i> 
-                <p>
-                Control User
-                <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                <a href="{{route('user.index')}}" class="nav-link">
-                    <i class="fas fa-fw fa-user"></i> 
-                    <p>All Users</p>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a href="{{route('user.create')}}" class="nav-link active">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <p>Add User</p>
-                </a>
-                </li>
-            </ul>
-            </li> --}}
 
             <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="fas fa-users-cog"></i> 
                 <p>
-                Control User
+                {{__('Dashboard.ControlUser')}}
                 <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -72,13 +49,13 @@
                 <li class="nav-item">
                 <a href="{{route('user.index')}}" class="nav-link">
                     <i class="fas fa-users"></i> 
-                    <p>All Users</p>
+                    <p>{{__('Dashboard.AllUsers')}}</p>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a href="{{route('user.create')}}" class="nav-link">
                     <i class="fas fa-fw fa-user-plus"></i>
-                    <p>Add User</p>
+                    <p>{{__('Dashboard.AddUser')}}</p>
                 </a>
                 </li>
             </ul>
@@ -88,7 +65,7 @@
             <a href="#" class="nav-link">
                 <i class="fas fa-cut"></i>
                 <p>
-                Controll Categories
+                {{__('Dashboard.ControlCategories')}}
                 <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -96,13 +73,13 @@
                 <li class="nav-item">
                 <a href="{{route('category.index')}}" class="nav-link">
                     <i class="fas fa-shopping-basket"></i>
-                    <p>All Categories</p>
+                    <p>{{__('Dashboard.AllCategories')}}</p>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a href="{{route('category.create')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Category</p>
+                    <i class="fas fa-plus-circle nav-icon"></i>
+                    <p>{{__('Dashboard.AddCategory')}}</p>
                 </a>
                 </li>
             </ul>
@@ -112,7 +89,7 @@
             <a href="#" class="nav-link">
                 <i class="fas fa-dolly"></i>
                 <p>
-                Control Products
+                {{__('Dashboard.ControlProduct')}}
                 <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -120,13 +97,13 @@
                 <li class="nav-item">
                 <a href="{{route('product.index')}}" class="nav-link">
                     <i class="fab fa-black-tie"></i>
-                    <p>All Products</p>
+                    <p>{{__('Dashboard.AllProducts')}}</p>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a href="{{route('product.create')}}" class="nav-link">
                     <i class="fas fa-cart-arrow-down"></i>
-                    <p>Add Product</p>
+                    <p>{{__('Dashboard.AddProduct')}}</p>
                 </a>
                 </li>
         </ul>
@@ -135,22 +112,22 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-copy"></i>
                     <p>
-                    Control Posts
+                    {{__('Dashboard.ControlPosts')}}
                     <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
+                <ul class="nav nav-treeview" style="background-color: rgb(63, 103, 145);">
                 <li class="nav-item">
                     <a href="{{route('post.index')}}" class="nav-link">
-                    <i class="fas fa-file-powerpoint nav-icon"></i>
-                        <p>All Posts
+                    <i class="fas fa-comments nav-icon"></i>
+                        <p>{{__('Dashboard.AllPosts')}}
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('post.create')}}" class="nav-link">
                     <i class="fas fa-edit nav-icon"></i>
-                        <p>Add Post</p>
+                        <p>{{__('Dashboard.AddPost')}}</p>
                     </a>
                 </li>
                 </ul>

@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             // $table->BigInteger('cat_id');
             // $table->foreign('cat_id')->references('id')->on('categories')->unsigned();
             $table->BigInteger('cat_id');
+            $table->string('ptype');
             // $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });

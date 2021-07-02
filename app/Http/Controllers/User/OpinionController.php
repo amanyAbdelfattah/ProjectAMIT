@@ -18,7 +18,7 @@ class OpinionController extends Controller
      */
     public function index()
     {
-        //
+        //To redirect user to index page to be able to view or write posts
         return view('user.index');
     }
 
@@ -54,7 +54,7 @@ class OpinionController extends Controller
         $post->user_id=auth()->id();
         $post->save();
 
-        return redirect()->back()->with(['success' => 'Post has been added']);
+        return redirect()->back()->with(['success' => 'Thanks for yout valuable comment']);
     }
 
     /**

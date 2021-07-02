@@ -8,6 +8,8 @@ use App\Models\Admin\Post;
 use App\Models\Admin\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -16,15 +18,51 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //To displau all products and posts
     public function index()
     {
+        //To display all Prodcust and Posts
         $products = Product::all();
         $posts = Post::all();
         return view('user.index',compact('products' , 'posts'));
     }
+    //To display women items when click on women link
+    public function women()
+    {
+        $products = Product::all();
+        $posts = Post::all();
+        $womenitems = DB::table('products')
+        ->where('cat_id', '=', 1)
+        ->get();
+        return view('user.items.women',compact('products','posts','womenitems'));
+    }
+
+    //To display men items when click on women link
+    public function men()
+    {
+        $products = Product::all();
+        $posts = Post::all();
+        $menitems = DB::table('products')
+        ->where('cat_id', '=', 2)
+        ->get();
+        return view('user.items.men',compact('products','posts','menitems'));
+    }
+
+    //To display kids items when click on women link
+    public function kids()
+    {
+        $products = Product::all();
+        $posts = Post::all();
+        $kidsitems = DB::table('products')
+        ->where('cat_id', '=', 3)
+        ->get();
+        return view('user.items.kids',compact('products','posts','kidsitems'));
+    }
     
     public function addToCart(Product $product)
     {
+        //To add Products to cart
         if(session()->has('cart'))
         {
             $cart = new Cart(session()->get('cart'));
@@ -38,6 +76,7 @@ class IndexController extends Controller
 
     public function showcart()
     {   
+        //To show Products that was added to cart
         if(session()->has('cart'))
         {
             $cart = new Cart(session()->get('cart'));
@@ -77,8 +116,12 @@ class IndexController extends Controller
      */
     public function show($id)
     {
+        //To show user profile
         $user = User::findOrFail($id);
-        return view('user.profiles.showprofile' , compact('user'));
+        $posts = DB::table('posts')
+        ->where('user_id', '=', Auth::user()->id)
+        ->get();
+        return view('user.profiles.showprofile' , compact('user','posts'));
     }
 
     /**

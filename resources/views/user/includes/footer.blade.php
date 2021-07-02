@@ -2,10 +2,10 @@
     <div class="container">
         <div class="text">
             <div class="ella">
-                <span>&copy; 2014 ELLA Fashion Store Shopify.All Rights Reserved.Ecommerce Software by Amany Abdelfattah </span>
+                <span>&copy; {{__('UserIndex.FOOTER')}} </span>
             </div>
             <div class="visa">
-                <span> VISA  Master Card  Paypal</span>
+                <span> {{__('UserIndex.VISA')}}</span>
             </div>
         </div>
     </div>

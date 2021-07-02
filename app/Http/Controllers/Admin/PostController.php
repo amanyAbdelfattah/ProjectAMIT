@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //To show all posts
+        //To show all Posts
         $posts = Post::paginate(5);
         return view('admin.posts.allposts' , compact('posts'));
     }
@@ -41,19 +41,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        //To validate user inputs and store it in DB
+        //To validate Post inputs and store it in DB
         $validator = Validator::make($request->all() , [
             'postbody' => ['required'],
         ]);
-        // ERROR: There is no validation rule named string
+        //To start storing Posts in DB
         if($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
         $post = new Post();
         $post->postbody = $request->input('postbody');
+        $post->user_id=auth()->id();
         $post->save();
-        return redirect()->back()->with(['success' => 'Post has been added']);
+        return redirect()->back()->with(['success' => 'Post was added']);
     }
 
     /**
@@ -65,6 +66,8 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        $post = Post::findOrFail($id);
+        return view('admin.posts.showpost', compact('post'));
     }
 
     /**
@@ -98,12 +101,12 @@ class PostController extends Controller
         {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
-        // Second insert new inputs in DB
+        // Second update Posts in DB
         $post = Post::findOrFail($id);
         $post->postbody = $request->input('postbody');
 
         $post->update();
-        return redirect()->back()->with(['success' => 'Post has been updated']);
+        return redirect()->back()->with(['success' => 'Post was updated']);
     }
 
     /**
@@ -114,9 +117,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //To delete post
+        //To delete Post
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->back()->with(['success' => 'User has been deleted']);
+        return redirect()->back()->with(['success' => 'Post was deleted']);
     }
 }
