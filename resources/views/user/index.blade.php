@@ -7,19 +7,19 @@
         <div class="swiper-container mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <h3>something is better fashion</h3>
+                    <h3>{{__('UserIndex.BETTERFASHION')}}</h3>
                     <div class="swipe-fashion">
                         <p>fashion lorem</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <h3>something is better fashion</h3>
+                    <h3>{{__('UserIndex.BETTERFASHION')}}</h3>
                     <div class="swipe-fashion">
                         <p>fashion lorem</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <h3>something is better fashion</h3>
+                    <h3>{{__('UserIndex.BETTERFASHION')}}</h3>
                     <div class="swipe-fashion">
                         <p>fashion lorem</p>
                     </div>

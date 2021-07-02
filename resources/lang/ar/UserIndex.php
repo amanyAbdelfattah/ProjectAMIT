@@ -8,7 +8,7 @@ return[
     "LANGUAGE" => "اللغة",
     "CURRENCY" => "العملة",
     "CART" => "عربة التسوق",
-    "SEARCH" => "ابحث هنا عن ما تحتاجه...",
+    "BETTERFASHION" => "الموضة شئ افضل",
     "FASHION" => "موضة",
     "HOME" => "الرئيسة",
     "WOMEN"=> "سيدات",

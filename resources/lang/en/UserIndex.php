@@ -8,6 +8,7 @@ return[
     "LANGUAGE" => "Language",
     "CURRENCY" => "Currency",
     "CART" => "My Cart",
+    "BETTERFASHION" => "something is better fashion",
     "FASHION" => "Fashion",
     "HOME" => "Home",
     "WOMEN"=> "Women",

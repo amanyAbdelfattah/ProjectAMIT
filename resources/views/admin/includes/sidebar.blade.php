@@ -55,7 +55,7 @@
                 <li class="nav-item">
                 <a href="{{route('user.create')}}" class="nav-link">
                     <i class="fas fa-fw fa-user-plus"></i>
-                    <p>{{__('Dashboard.AddUser')}}</p>
+                    <p>{{__('Dashboard.AddUsers')}}</p>
                 </a>
                 </li>
             </ul>

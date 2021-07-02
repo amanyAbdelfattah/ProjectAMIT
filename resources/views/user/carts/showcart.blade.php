@@ -23,8 +23,9 @@
                             </div>
                         </div>
                             
-                    @endforeach
+                    
                 </div>
+                @endforeach
             </div>
             @else
                             <p style="font-size:30px; color:red; text-align:center">{{__('UserIndex.NOCART')}}</p>

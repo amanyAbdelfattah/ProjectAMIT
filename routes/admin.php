@@ -1,11 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use RealRashid\SweetAlert\Facades\Alert;
-
-
-
-
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CatController;

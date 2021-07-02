@@ -10,7 +10,7 @@
                 <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">{{__('Dashboard.AllUsers')}}</h1>
                 </div>
-                <a class="btn btn-primary mx-5" href="{{route('user.create')}}">{{__('Dashboard.AddUser')}}</a>
+                <a class="btn btn-primary mx-5" href="{{route('user.create')}}">{{__('Dashboard.AddUsers')}}</a>
             </div>
             <div class="row">
                 @include('sweetalert::alert')

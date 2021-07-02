@@ -10,7 +10,7 @@ return[
     "DASHBOARD" => "لوحة التحكم",
     "ControlUser" => "تحكم المستخدمين",
     "AllUsers" => "جميع المستخدمين",
-    "AddUser" => "اضافة عضو",
+    "AddUsers" => "اضافة مستخدم",
     "CreateUserAccount!" => "!اضاقة حساب مستخدم",
     "UploadImage" => "رفع صورة",
     "PASS" => "كلمة مرور",

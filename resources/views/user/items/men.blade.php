@@ -8,13 +8,22 @@
     <div class="swiper-container mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <h3>SOMETHING IS BETTER FASHION</h3>
+                <h3>{{__('UserIndex.BETTERFASHION')}}</h3>
+                <div class="swipe-fashion">
+                    <p>fashion lorem</p>
+                </div>
             </div>
             <div class="swiper-slide">
-                <h3>SOMETHING IS BETTER FASHION</h3>
+                <h3>{{__('UserIndex.BETTERFASHION')}}</h3>
+                <div class="swipe-fashion">
+                    <p>fashion lorem</p>
+                </div>
             </div>
             <div class="swiper-slide">
-                <h3>SOMETHING IS BETTER FASHION</h3>
+                <h3>{{__('UserIndex.BETTERFASHION')}}</h3>
+                <div class="swipe-fashion">
+                    <p>fashion lorem</p>
+                </div>
             </div>
         </div>
         <div class="swiper-button-next"></div>
@@ -31,8 +40,7 @@
         <div class="trend">
             <div class="woman">
                 <div class="collitem">
-                    <img src="{{URL::asset("userinterface/img/fashion-pretty-cool-young-girl-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg")}}"
-                    alt="">
+                    <img src="{{URL::asset('userinterface/img/girlviewcoll.jpg')}}" alt="">
                     <div class="over-1 text-center">
                         <button class="upper">{{__('UserIndex.ViewCollection')}}</button>
                     </div>
@@ -52,13 +60,13 @@
             <div class="men-side">
                 <div class="row flex-column position">
                     <div class="box1 mb-5">
-                        <img src="{{URL::asset("userinterface/img/pexels-photo-842811.jpeg")}}" alt="">
+                        <img style="max-width:100%" src="{{URL::asset('userinterface/img/manoneviewcoll.jpg')}}" alt="">
                     <div class="over-2 text-center">
                         <button class="upper">{{__('UserIndex.ViewCollection')}}</button>
                     </div>
                     </div>
                     <div class="box2">
-                        <img src="{{URL::asset("userinterface/img/82782504fb584f1112f99ddf55107945.png")}}" alt="">
+                        <img style="max-width:100%" src="{{URL::asset('userinterface/img/mantwoviewcoll.jpg')}}" alt="">
                     <div class="over-3 text-center">
                         <button class="upper">{{__('UserIndex.ViewCollection')}}</button>
                     </div>
@@ -271,19 +279,19 @@
         </div>
         <div class="blog" id="blog">
             <div class="box">
-                <img src="{{URL::asset("userinterface/img/photo-1499887142886-791eca5918cd.jpg")}}" alt="">
+                <img style="max-width:90%; height: 35.5vh;" src="{{URL::asset("userinterface/img/firstmodel.jpg")}}" alt="">
                 <h2>{{__('UserIndex.SomeHeadline')}}</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio error ex provident.</p>
                 <button>{{__('UserIndex.READMORE')}}</button>
             </div>
             <div class="box">
-                <img src="{{URL::asset("userinterface/img/photo-1499887142886-791eca5918cd.jpg")}}" alt="">
+                <img style="max-width:100%; height: 35.5vh;" src="{{URL::asset("userinterface/img/sndmodel.jpg")}}" alt="">
                 <h2>{{__('UserIndex.SomeHeadline')}}</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio error ex provident.</p>
                 <button>{{__('UserIndex.READMORE')}}</button>
             </div>
             <div class="box">
-                <img src="{{URL::asset("userinterface/img/photo-1499887142886-791eca5918cd.jpg")}}" alt="">
+                <img style="max-width:100%; height: 35.5vh;" src="{{URL::asset("userinterface/img/man_model.jpg")}}" alt="">
                 <h2>{{__('UserIndex.SomeHeadline')}}</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio error ex provident.</p>
                 <button>{{__('UserIndex.READMORE')}}</button>
@@ -310,7 +318,7 @@
                 <img src="{{URL::asset('userinterface/img/themeforest-logo-768x363.png')}}" alt="">
             </div>
             <div class="box">
-                <img src="userinterface/img/themeforest-logo-768x363.png" alt="">
+                <img src="{{URL::asset('userinterface/img/themeforest-logo-768x363.png')}}" alt="">
             </div>
             <div class="box">
                 <img src="{{URL::asset('userinterface/img/themeforest-logo-768x363.png')}}" alt="">
@@ -332,8 +340,8 @@
                 <p>{{__('UserIndex.SchuheShoes')}}</p>
                 <p> {{__('UserIndex.BagANDAccessories')}}</p>
                 <p>{{__('UserIndex.TopBrands')}}</p>
-                <p>Sale & Special Offers</p>
-                <p>Look Book</p>
+                <p>{{__('UserIndex.SaleANDSpecialOffers')}}</p>
+                <p>{{__('UserIndex.LookBook')}}</p>
             </div>
             <div class="box">
                 <h4>{{__('UserIndex.INFORMATION')}}</h4>
@@ -343,8 +351,8 @@
                 <p>{{__('UserIndex.SchuheShoes')}}</p>
                 <p> {{__('UserIndex.BagANDAccessories')}}</p>
                 <p>{{__('UserIndex.TopBrands')}}</p>
-                <p>Sale & Special Offers</p>
-                <p>Look Book</p>
+                <p>{{__('UserIndex.SaleANDSpecialOffers')}}</p>
+                <p>{{__('UserIndex.LookBook')}}</p>
             </div>
             <div class="box">
                 <h4>{{__('UserIndex.CUSTOMERSERVICE')}}</h4>
@@ -354,8 +362,8 @@
                 <p>{{__('UserIndex.SchuheShoes')}}</p>
                 <p> {{__('UserIndex.BagANDAccessories')}}</p>
                 <p>{{__('UserIndex.TopBrands')}}</p>
-                <p>Sale & Special Offers</p>
-                <p>Look Book</p>
+                <p>{{__('UserIndex.SaleANDSpecialOffers')}}</p>
+                <p>{{__('UserIndex.LookBook')}}</p>
             </div>
             <div class="box">
                 <h4>{{__('UserIndex.NEWSLETTER')}}</h4>
